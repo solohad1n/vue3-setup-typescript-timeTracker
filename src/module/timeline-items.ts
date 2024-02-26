@@ -2,7 +2,7 @@ import { computed, ref, watch, ComponentPublicInstance } from 'vue'
 import { HOURS_IN_DAY, MIDNIGHT_HOUR } from './constants'
 import { endOfHour, isToday, now, toSeconds, today } from './time'
 import { stopTimelineItemTimer } from './timeline-item-timer'
-import type { Activity, State, TimeLineItem } from '../types/types'
+import type { Activity, Hour, State, TimeLineItem } from '../types/types'
 
 export const timelineItemRefs = ref<ComponentPublicInstance[] | null>(null)
 
@@ -55,11 +55,13 @@ export function calculateTrackedActivitySeconds(timelineItems:TimeLineItem[], ac
 }
 
 export function scrollToCurrentHour(isSmooth = false):void {
-  scrollToHour(today().getHours(), isSmooth)
+  scrollToHour(today().getHours() as Hour, isSmooth)
 }
 
-export function scrollToHour(hour:number, isSmooth = true):void {
-  const el:HTMLBodyElement | HTMLLIElement = hour === MIDNIGHT_HOUR || !timelineItemRefs.value ? document.body : timelineItemRefs.value[hour - 1].$el
+export function scrollToHour(hour:Hour, isSmooth = true):void {
+  const el:HTMLBodyElement | HTMLLIElement =
+  hour === MIDNIGHT_HOUR ||
+  !timelineItemRefs.value ? document.body : timelineItemRefs.value[hour - 1].$el
 
   el.scrollIntoView({ behavior: isSmooth ? 'smooth' : 'instant' })
 }
@@ -90,7 +92,7 @@ function filterTimelineItemsByActivity(timelineItems:TimeLineItem[], { id }:Acti
 }
 
 function generateTimelineItems():TimeLineItem[] {
-  return [...Array(HOURS_IN_DAY).keys()].map((hour):TimeLineItem => ({
+  return ([...Array(HOURS_IN_DAY).keys()] as Hour[]).map((hour):TimeLineItem => ({
     hour,
     activityId: null,
     activitySeconds: 0,

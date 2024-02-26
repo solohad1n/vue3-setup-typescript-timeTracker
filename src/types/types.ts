@@ -25,6 +25,8 @@ typeof BUTTON_TYPE_DANGER
 
 export type PageName = typeof PAGE_TIMELINE | typeof PAGE_ACTIVITIES | typeof PAGE_PROGRESS
 
+export type Hour = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23
+
 export interface Activity {
   id: string;
   name: string;
@@ -43,7 +45,7 @@ export interface State {
 }
 
 export interface TimeLineItem {
-  hour: number
+  hour: Hour
   activityId: Activity['id'] | null
   activitySeconds: number
   isActive: boolean
