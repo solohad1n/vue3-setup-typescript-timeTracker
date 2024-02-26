@@ -1,9 +1,8 @@
 <script setup lang="ts" generic="T extends number | string">
-import { BUTTON_TYPE_NEUTRAL } from '../module/constants'
 import { normalizeSelectValue } from '../module/functions'
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
-import { IconName, type SelectOption } from '../types/types'
+import { ButtonType, IconName, type SelectOption } from '../types/types'
 
 defineProps<{
   options: SelectOption<T>[];
@@ -24,14 +23,14 @@ function select(value: string | null):void {
 
 <template>
   <div class="flex gap-2">
-    <BaseButton :type="BUTTON_TYPE_NEUTRAL" @click="select(null)">
+    <BaseButton :type="ButtonType.NEUTRAL" @click="select(null)">
       <BaseIcon :name="IconName.X_MARK" />
     </BaseButton>
     <select
       class="w-full truncate rounded bg-gray-100 px-2 py-1 text-2xl"
       @change="select(($event.target as HTMLSelectElement).value)"
     >
-      <option :selected="isNotSelected == null" disabled value="">
+      <option :selected="isNotSelected === null" disabled value="">
         {{ placeholder }}
       </option>
       <option

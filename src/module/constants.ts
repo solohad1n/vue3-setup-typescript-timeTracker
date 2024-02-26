@@ -1,5 +1,5 @@
 import { generatePeriodSelectOptions } from './functions'
-import { IconName, type ButtonType, type NavItems, PageName } from '../types/types'
+import { IconName, ButtonType, type NavItems, PageName } from '../types/types'
 
 
 
@@ -22,18 +22,12 @@ export const NAV_ITEMS:NavItems[] = [
   }
 ]
 
-export const BUTTON_TYPE_PRIMARY = 'primary'
-export const BUTTON_TYPE_SUCCESS = 'success'
-export const BUTTON_TYPE_WARNING = 'warning'
-export const BUTTON_TYPE_NEUTRAL = 'neutral'
-export const BUTTON_TYPE_DANGER = 'danger'
-
 export const BUTTON_TYPES:ButtonType[] = [
-  BUTTON_TYPE_PRIMARY,
-  BUTTON_TYPE_SUCCESS,
-  BUTTON_TYPE_WARNING,
-  BUTTON_TYPE_NEUTRAL,
-  BUTTON_TYPE_DANGER
+  ButtonType.PRIMARY,
+  ButtonType.SUCCESS,
+  ButtonType.WARNING,
+  ButtonType.NEUTRAL,
+  ButtonType.DANGER
 ]
 
 export const MILLISECONDS_IN_SECOND = 1000
