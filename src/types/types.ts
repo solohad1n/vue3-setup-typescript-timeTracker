@@ -27,6 +27,19 @@ export type PageName = typeof PAGE_TIMELINE | typeof PAGE_ACTIVITIES | typeof PA
 
 export type Hour = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23
 
+export enum IconName {
+  CHECK_CIRCLE = 'CheckCircle',
+  LIST_BULLET = 'ListBullet',
+  ARROW_PATH = 'ArrowPath',
+  CHART_BAR = 'ChartBar',
+  CLOCK = 'Clock',
+  TRASH = 'Trash',
+  X_MARK = 'XMark',
+  PAUSE = 'Pause',
+  PLAY = 'Play',
+  PLUS = 'Plus',
+}
+
 export interface Activity {
   id: string;
   name: string;
@@ -53,7 +66,7 @@ export interface TimeLineItem {
 
 export interface NavItems {
   page: PageName;
-  icon: string;
+  icon: IconName;
 }
 
 

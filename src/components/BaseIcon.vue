@@ -1,14 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { ICONS } from '../module/icons'
-import { isIconValid } from '../module/validators'
+import type { IconName } from '../types/types';
 
-defineProps({
-  name: {
-    required: true,
-    type: String,
-    validator: isIconValid
-  }
-})
+defineProps<{ name: IconName }>()
+
 </script>
 
 <template>

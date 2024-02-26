@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { BUTTON_TYPE_SUCCESS, BUTTON_TYPE_WARNING, BUTTON_TYPE_DANGER } from '../module/constants'
-import { ICON_ARROW_PATH, ICON_PAUSE, ICON_PLAY } from '../module/icons'
 import { formatSeconds } from '../module/functions'
 import { activeTimelineItem } from '../module/timeline-items'
 import {
@@ -11,7 +10,7 @@ import {
 import { now } from '../module/time'
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
-import type { TimeLineItem } from '../types/types'
+import { IconName, type TimeLineItem } from '../types/types'
 
 defineProps<{
   timelineItem: TimeLineItem
@@ -25,7 +24,7 @@ defineProps<{
       :disabled="!timelineItem.activitySeconds"
       @click="resetTimelineItemTimer(timelineItem)"
     >
-      <BaseIcon :name="ICON_ARROW_PATH" />
+      <BaseIcon :name="IconName.ARROW_PATH" />
     </BaseButton>
     <div class="flex flex-grow items-center rounded bg-gray-100 px-2 font-mono text-3xl">
       {{ formatSeconds(timelineItem.activitySeconds) }}
@@ -35,7 +34,7 @@ defineProps<{
       :type="BUTTON_TYPE_WARNING"
       @click="stopTimelineItemTimer"
     >
-      <BaseIcon :name="ICON_PAUSE" />
+      <BaseIcon :name="IconName.PAUSE" />
     </BaseButton>
     <BaseButton
       v-else
@@ -43,7 +42,7 @@ defineProps<{
       :disabled="timelineItem.hour !== now.getHours()"
       @click="startTimelineItemTimer(timelineItem)"
     >
-      <BaseIcon :name="ICON_PLAY" />
+      <BaseIcon :name="IconName.PLAY" />
     </BaseButton>
   </div>
 </template>
