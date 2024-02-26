@@ -1,8 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import { BUTTON_TYPE_SUCCESS, BUTTON_TYPE_WARNING, BUTTON_TYPE_DANGER } from '../module/constants'
 import { ICON_ARROW_PATH, ICON_PAUSE, ICON_PLAY } from '../module/icons'
 import { formatSeconds } from '../module/functions'
-import { isTimelineItemValid } from '../module/validators'
 import { activeTimelineItem } from '../module/timeline-items'
 import {
   startTimelineItemTimer,
@@ -12,14 +11,11 @@ import {
 import { now } from '../module/time'
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
+import type { TimeLineItem } from '../types/types'
 
-defineProps({
-  timelineItem: {
-    required: true,
-    type: Object,
-    validator: isTimelineItemValid
-  }
-})
+defineProps<{
+  timelineItem: TimeLineItem
+}>()
 </script>
 
 <template>

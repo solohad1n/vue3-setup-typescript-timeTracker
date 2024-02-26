@@ -1,18 +1,14 @@
-<script setup>
-import { isTimelineItemValid } from '../module/validators'
+<script setup lang="ts">
 import { updateTimelineItem } from '../module/timeline-items'
 import { activitySelectOptions } from '../module/activities'
 import BaseSelect from './BaseSelect.vue'
 import TimelineHour from './TimelineHour.vue'
 import TimelineStopwatch from './TimelineStopwatch.vue'
+import type { TimeLineItem } from '../types/types'
 
-defineProps({
-  timelineItem: {
-    required: true,
-    type: Object,
-    validator: isTimelineItemValid
-  }
-})
+defineProps<{
+  timelineItem: TimeLineItem
+}>()
 </script>
 
 <template>
