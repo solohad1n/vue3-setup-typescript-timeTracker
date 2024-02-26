@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { PAGE_TIMELINE } from '../module/constants'
 import { currentPage, navigate } from '../router'
 import { scrollToCurrentHour } from '../module/timeline-items'
 
-function handleClick() {
+function handleClick():void {
   currentPage.value === PAGE_TIMELINE ? scrollToCurrentHour(true) : navigate(PAGE_TIMELINE)
 }
 </script>
