@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { PAGE_TIMELINE } from '../module/constants'
 import { currentPage, navigate } from '../router'
 import { scrollToCurrentHour } from '../module/timeline-items'
 import BaseIcon from './BaseIcon.vue'
-import type { NavItems } from '../types/types'
+import { PageName, type NavItems } from '../types/types'
 
 const props = defineProps<{
   navItem: NavItems
@@ -16,7 +15,7 @@ const classes = computed(():string[] => [
 ])
 
 function handleClick():void {
-  currentPage.value === PAGE_TIMELINE && props.navItem.page === PAGE_TIMELINE
+  currentPage.value === PageName.TIMELINE && props.navItem.page === PageName.TIMELINE
     ? scrollToCurrentHour(true)
     : navigate(props.navItem.page)
 }

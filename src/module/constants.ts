@@ -1,27 +1,23 @@
 import { generatePeriodSelectOptions } from './functions'
-import { IconName, type ButtonType, type NavItems } from '../types/types'
+import { IconName, type ButtonType, type NavItems, PageName } from '../types/types'
 
 
 
 export const APP_NAME = 'ontrack'
 
-export const PAGE_TIMELINE = 'timeline'
-export const PAGE_ACTIVITIES = 'activities'
-export const PAGE_PROGRESS = 'progress'
-
 
 
 export const NAV_ITEMS:NavItems[] = [
   {
-    page: PAGE_TIMELINE,
+    page: PageName.TIMELINE,
     icon: IconName.CLOCK
   },
   {
-    page: PAGE_ACTIVITIES,
+    page: PageName.ACTIVITIES,
     icon: IconName.LIST_BULLET
   },
   {
-    page: PAGE_PROGRESS,
+    page: PageName.PROGRESS,
     icon: IconName.CHART_BAR
   }
 ]

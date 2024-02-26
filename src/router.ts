@@ -1,15 +1,14 @@
-import { ref } from 'vue'
-import { PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS, NAV_ITEMS } from './module/constants'
+import { ref, type Component } from 'vue'
+import { NAV_ITEMS } from './module/constants'
 import TheTimeline from './pages/TheTimeline.vue'
 import TheActivities from './pages/TheActivities.vue'
 import TheProgress from './pages/TheProgress.vue'
-import type { PageName } from './types/types'
-import type { Component } from 'vue'
+import { PageName } from './types/types'
 
 export const routes: Record<PageName, Component> = {
-  [PAGE_TIMELINE]: TheTimeline,
-  [PAGE_ACTIVITIES]: TheActivities,
-  [PAGE_PROGRESS]: TheProgress
+  [PageName.TIMELINE]: TheTimeline,
+  [PageName.ACTIVITIES]: TheActivities,
+  [PageName.PROGRESS]: TheProgress
 }
 
 export const currentPage = ref<PageName>(normalizePageHash())
@@ -27,7 +26,7 @@ export function normalizePageHash():PageName {
     return page as PageName
   }
 
-  window.location.hash = PAGE_TIMELINE
+  window.location.hash = PageName.TIMELINE
 
-  return PAGE_TIMELINE
+  return PageName.TIMELINE
 }
