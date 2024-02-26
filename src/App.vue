@@ -11,6 +11,7 @@ import TheNav from './components/TheNav.vue'
     <KeepAlive>
       <component :is="routes[currentPage]" />
     </KeepAlive>
+
   </main>
 
   <TheNav />
