@@ -17,3 +17,10 @@ export interface State {
   activities: Activity[];
   lastActiveAt: Date
 }
+
+// export interface TimeLineItem {
+//   hour: Hour
+//   activityId: Activity['id'] | null
+//   activitySeconds: number
+//   isActive: boolean
+// }
