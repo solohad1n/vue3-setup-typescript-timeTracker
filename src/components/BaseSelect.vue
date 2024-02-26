@@ -30,7 +30,7 @@ function select(value: string | null):void {
       class="w-full truncate rounded bg-gray-100 px-2 py-1 text-2xl"
       @change="select(($event.target as HTMLSelectElement).value)"
     >
-      <option :selected="isNotSelected === null" disabled value="">
+      <option :selected="selected === null" disabled value="">
         {{ placeholder }}
       </option>
       <option
