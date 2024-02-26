@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { HUNDRED_PERCENT } from './constants'
-import type { Activity, SelectOption } from '../types/types'
+import type { Activity, SelectOption, State } from '../types/types'
 
 
 export const activities = ref<Activity[]>([])
@@ -11,7 +11,7 @@ export const trackedActivities = computed<Activity[]>(() =>
 
 export const activitySelectOptions = computed<SelectOption[]>(() => generateActivitySelectOptions(activities.value))
 
-export function initializeActivities(state: any):void {
+export function initializeActivities(state: State):void {
   activities.value = state.activities || []
 }
 
@@ -19,7 +19,7 @@ export function createActivity(activity: Activity):void {
   activities.value.push(activity)
 }
 
-export function updateActivity(activity: Activity, fields:any):Activity {
+export function updateActivity(activity: Activity, fields: Partial<Activity>):Activity {
   return Object.assign(activity, fields)
 }
 
