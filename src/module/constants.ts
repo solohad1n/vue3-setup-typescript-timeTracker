@@ -1,6 +1,6 @@
 import { ICON_CLOCK, ICON_LIST_BULLET, ICON_CHART_BAR } from './icons'
 import { generatePeriodSelectOptions } from './functions'
-import type { PageName } from '../types/types'
+import type { ButtonType, NavItems } from '../types/types'
 
 
 
@@ -10,10 +10,7 @@ export const PAGE_TIMELINE = 'timeline'
 export const PAGE_ACTIVITIES = 'activities'
 export const PAGE_PROGRESS = 'progress'
 
-interface NavItems {
-  page: PageName;
-  icon: any;
-}
+
 
 export const NAV_ITEMS:NavItems[] = [
   {
@@ -29,13 +26,6 @@ export const NAV_ITEMS:NavItems[] = [
     icon: ICON_CHART_BAR
   }
 ]
-
-type ButtonType = 
-  typeof BUTTON_TYPE_PRIMARY |
-  typeof BUTTON_TYPE_SUCCESS |
-  typeof BUTTON_TYPE_WARNING |
-  typeof BUTTON_TYPE_NEUTRAL |
-  typeof BUTTON_TYPE_DANGER
 
 export const BUTTON_TYPE_PRIMARY = 'primary'
 export const BUTTON_TYPE_SUCCESS = 'success'
