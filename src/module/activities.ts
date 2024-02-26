@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { HUNDRED_PERCENT } from './constants'
-import type { Activity, ActivitySelectOption } from '../types/types'
+import type { Activity, SelectOption } from '../types/types'
 
 
 export const activities = ref<Activity[]>([])
@@ -9,7 +9,7 @@ export const trackedActivities = computed<Activity[]>(() =>
   activities.value.filter(({ secondsToComplete }):boolean => secondsToComplete != 0)
 )
 
-export const activitySelectOptions = computed<ActivitySelectOption[]>(() => generateActivitySelectOptions(activities.value))
+export const activitySelectOptions = computed<SelectOption[]>(() => generateActivitySelectOptions(activities.value))
 
 export function initializeActivities(state: any):void {
   activities.value = state.activities || []
@@ -41,6 +41,6 @@ const totalActivitySecondsToComplete = computed(() => {
     .reduce((total, seconds) => total + seconds, 0)
 })
 
-function generateActivitySelectOptions(activities:Activity[]):ActivitySelectOption[] {
-  return activities.map((activity):ActivitySelectOption => ({ value: activity.id, label: activity.name }))
+function generateActivitySelectOptions(activities:Activity[]):SelectOption[] {
+  return activities.map((activity):SelectOption => ({ value: activity.id, label: activity.name }))
 }

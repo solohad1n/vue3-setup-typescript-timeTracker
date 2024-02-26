@@ -31,27 +31,20 @@ export interface Activity {
   secondsToComplete: number;
 }
 
-export interface ActivitySelectOption {
-  value: string;
+export interface SelectOption<T = string> {
+  value: T;
   label: string;
 }
 
 export interface State {
-  timelineItems: any;
+  timelineItems: TimeLineItem[];
   activities: Activity[];
   lastActiveAt: Date
 }
 
-// export interface TimeLineItem {
-//   hour: Hour
-//   activityId: Activity['id'] | null
-//   activitySeconds: number
-//   isActive: boolean
-// }
-
 export interface TimeLineItem {
   hour: number
-  activityId: string | null
+  activityId: Activity['id'] | null
   activitySeconds: number
   isActive: boolean
 }
@@ -61,7 +54,4 @@ export interface NavItems {
   icon: any;
 }
 
-export interface PeriodSelectOptions {
-  value: number;
-  label: string
-}
+
