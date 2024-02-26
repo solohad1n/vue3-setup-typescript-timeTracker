@@ -24,3 +24,10 @@ export interface State {
 //   activitySeconds: number
 //   isActive: boolean
 // }
+
+export interface TimeLineItem {
+  hour: number
+  activityId: string | null
+  activitySeconds: number
+  isActive: boolean
+}
