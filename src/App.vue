@@ -1,7 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { routes, currentPage } from './router'
 import TheHeader from './components/TheHeader.vue'
 import TheNav from './components/TheNav.vue'
+
+const asd:string = 'asd'
+
+console.log(asd)
 </script>
 
 <template>
