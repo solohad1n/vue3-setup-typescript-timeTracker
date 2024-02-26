@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends number | string">
 import { computed } from 'vue'
 import { BUTTON_TYPE_NEUTRAL } from '../module/constants'
 import { ICON_X_MARK } from '../module/icons'
@@ -6,15 +6,16 @@ import { normalizeSelectValue } from '../module/functions'
 import { isUndefinedOrNull } from '../module/validators'
 import BaseButton from './BaseButton.vue'
 import BaseIcon from './BaseIcon.vue'
+import type { SelectOption } from '../types/types'
 
 const props = defineProps<{
-  options: { value:number, label: string}[];
+  options: SelectOption<T>[];
   selected: number | string | null;
   placeholder: string
 }>()
 
 const emit = defineEmits<{
-  (e: 'select', value: number | string | null): void 
+  (e: 'select', value: T | null): void 
   // select: [value: number | string | null] - новый способ
 }>()
 
